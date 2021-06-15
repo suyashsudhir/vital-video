@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+html, body {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.video-stream {
+  outline: none;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 50px;
+}
+
+.site-input {
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  outline: none;
+  border: none;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.site-btn {
+  -webkit-box-shadow: 1px 1px 3px #27ae60;
+          box-shadow: 1px 1px 3px #27ae60;
+  border: none;
+  outline: none;
+  background-color: #27ae60;
+  color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.site-btn img {
+  margin-right: 10px;
+  height: 25px;
+  width: 25px;
+  fill: #f9f9f9;
+}
+
+.site-btn:active {
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.w-25 {
+  width: 25% !important;
+}
+
+.font-20 {
+  font-size: 20px !important;
+}
+
+.call-btn {
+  border: none;
+  outline: none;
+  background: #27ae60;
+  -webkit-box-shadow: 1px 1px 3px #27ae60;
+          box-shadow: 1px 1px 3px #27ae60;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px;
+  border-radius: 50px;
+}
+
+.call-btn :active {
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+/*# sourceMappingURL=styles.css.map */
