@@ -23,7 +23,7 @@ export default function CallUtility({ children }) {
     callEnded,
     muteAudio,
     setmuteAudio,
-    myVideo,
+    
     shareScreen,
     stream,
     screenShareStream,
@@ -70,6 +70,7 @@ export default function CallUtility({ children }) {
                     className="call-btn d-flex justify-content-center align-items-center"
                     onClick={(kind) => {
                       handleVideoToggle();
+                      console.log(stream.getVideoTracks()[0])
                     }}
                   >
                     <img
