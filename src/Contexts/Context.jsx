@@ -5,7 +5,7 @@ import Peer from 'simple-peer';
 
 
 const SocketContext = createContext();
-const socket = io('https://wbrtc-app-server.herokuapp.com/',{forceNew: true}
+const socket = io('https://wbrtc-app-server.herokuapp.com/'
   );
 
 function Context({ children }) {
@@ -18,12 +18,13 @@ function Context({ children }) {
     const [callEnded, setcallEnded] = useState(false);
     const [muteAudio, setmuteAudio] = useState(true);
     const [screenShareStream, setscreenShareStream] = useState();
+    const [isScreenSharing, setisScreenSharing] = useState(false);
 
 
     const myVideo = useRef();
     const peerVideo = useRef();
     const connectionRef = useRef();
-
+    const screenShareRef = useRef();
 
 
     useEffect(() => {
@@ -39,7 +40,7 @@ function Context({ children }) {
         socket.on('currentId', id => setcurrentId(id));
 
         socket.on('callUser', ({ name: callerName, from, signal }) => {
-            console.log(signal,name, from )
+            
             setcall({ isCallReceived: true, name: callerName, from, signal });
         });
 
@@ -49,11 +50,10 @@ function Context({ children }) {
 
     const shareScreen = () => {
         navigator.mediaDevices.getDisplayMedia({ video: true }).then(data => {
-            
-            peerVideo.current.srcObject = data;
-
             setscreenShareStream(data);
-
+            setisScreenSharing(true);
+            screenShareRef.current.srcObject = data;
+            
             
         });
     }
@@ -69,7 +69,9 @@ function Context({ children }) {
         });
 
         peer.on('stream', (currentStream) => {
+            
             peerVideo.current.srcObject = currentStream;
+            
         });
         
         peer.signal(call.signal);
@@ -93,7 +95,7 @@ function Context({ children }) {
 
         socket.on('callAccepted',(signal) => {
             setcallAccepted(true);
-            console.log(signal)
+            
             peer.signal(signal);
 
         });
@@ -113,7 +115,7 @@ function Context({ children }) {
     return (
         <SocketContext.Provider value={{
             call, callAccepted,setcallAccepted, currentId, myVideo, peerVideo, answerCall, stream, name, setname, makeCall, endCall, callEnded, setcallEnded, muteAudio, setmuteAudio, shareScreen, screenShareStream, setscreenShareStream
-        }}>
+        ,isScreenSharing, screenShareRef}}>
             {children}
         </SocketContext.Provider>
     )

@@ -6,7 +6,7 @@ import callEnd from "../assets/img/call-end-red.svg";
 
 export default function CallingScreen() {
 
-    const { call, callAccepted, answerCall, name, stream } =
+    const { call, callAccepted, answerCall, name } =
       useContext(SocketContext);
     const [dismissNotification, setDismissNotification] = useState(false);
     
@@ -52,7 +52,7 @@ export default function CallingScreen() {
                   <div className="col-6">
                     <button
                       onClick={() => {
-                        console.log(stream.getTracks());
+                       
                         answerCall();
                       }}
                       style={{

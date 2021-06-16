@@ -26,7 +26,7 @@ export default function CallUtility({ children }) {
     
     shareScreen,
     stream,
-    screenShareStream,
+    
   } = useContext(SocketContext);
   const [videoOff, setVideoOff] = useState(true);
   const handleVideoToggle = () => {
@@ -34,10 +34,8 @@ export default function CallUtility({ children }) {
     setVideoOff(!videoOff);
   };
 
-  console.log(!screenShareStream? 'hello': screenShareStream.getTracks(), screenShareStream)
-  if(screenShareStream){
-    screenShareStream.onended = () => console.log('ended')
-  }
+
+  
   return (
     <div className="container-fluid">
       <div className="row mb-5">
@@ -70,7 +68,7 @@ export default function CallUtility({ children }) {
                     className="call-btn d-flex justify-content-center align-items-center"
                     onClick={(kind) => {
                       handleVideoToggle();
-                      console.log(stream.getVideoTracks()[0])
+                      
                     }}
                   >
                     <img
