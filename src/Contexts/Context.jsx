@@ -1,11 +1,12 @@
  /* eslint-disable */
 import React, { createContext, useState, useRef, useEffect } from 'react';
-import { io } from 'socket.io-client';
+import {io} from 'socket.io-client';
 import Peer from 'simple-peer';
 
-const socket = io('https://wbrtc-app-server.herokuapp.com/');
 
 const SocketContext = createContext();
+const socket = io('https://wbrtc-app-server.herokuapp.com/',{forceNew: true}
+  );
 
 function Context({ children }) {
 
